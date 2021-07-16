@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txtValue"/>
+<input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"/>
+<input type="button" id="btnDisplay" value="Display" onclick="display_array();"/>
+<input type="reset" id="btnRset" value="Reset" onclick="resetMang()"/>
+<div id="result"></div>
+
+<script>
+    let x = 0;
+    let array = Array();
+    function add_element_to_array() {
+        array[x] = document.getElementById("txtValue").value;
+        x++;
+        document.getElementById("txtValue ").value = "";
+    }
+    function display_array() {
+        let e = "<hr/>";
+        for (let i = 0; i < array.length; i++) {
+            e += "Element " + i + " = " + array[i] + "<br/>";
+        }
+        document.getElementById("result").innerHTML = e;
+    }
+    function resetMang(){
+        for (let i = 0; i < array.length; i++) {
+            array.shift();
+        }
+        document.getElementById("result").innerText = array;
+    }
+</script>
+
+</body>
+</html>
